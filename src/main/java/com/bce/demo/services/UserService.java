@@ -24,4 +24,12 @@ public class UserService {
         return userRepository.findById(userId).orElse(null);
     }
 
+    public User updateUser(Integer userId, User user) {
+        if (userRepository.existsById(userId)) {
+            user.setId(userId);
+            return userRepository.save(user);
+        }
+        return null; // or throw an exception
+    }
+
 }

@@ -32,4 +32,10 @@ public class UserService {
         return null; // or throw an exception
     }
 
+    public void deleteUser(Integer userId) {
+        if (userRepository.existsById(userId)) {
+            userRepository.deleteById(userId);
+        }
+    }   
+
 }
